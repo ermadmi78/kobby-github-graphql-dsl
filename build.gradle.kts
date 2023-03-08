@@ -14,7 +14,7 @@ buildscript {
 
 plugins {
     kotlin("jvm") version "1.6.21"
-    id("io.github.ermadmi78.kobby") version "2.1.0"
+    id("io.github.ermadmi78.kobby") version "2.1.1"
 }
 
 kobby {

@@ -13,16 +13,17 @@ buildscript {
 }
 
 plugins {
-    kotlin("jvm") version "1.6.21"
-    id("io.github.ermadmi78.kobby") version "2.1.1"
+    kotlin("jvm") version "1.8.21"
+    kotlin("plugin.serialization") version "1.8.21"
+    id("io.github.ermadmi78.kobby") version "3.0.0-beta.01"
 }
 
 kobby {
     kotlin {
         scalars = mapOf(
             "Base64String" to typeString,
-            "Date" to typeOf("java.time", "LocalDate"),
-            "DateTime" to typeOf("java.time", "OffsetDateTime"),
+            "Date" to typeOf("kotlinx.datetime", "LocalDate"),
+            "DateTime" to typeOf("kotlinx.datetime", "LocalDateTime"),
             "GitObjectID" to typeString,
             "GitSSHRemote" to typeString,
             "GitTimestamp" to typeString,
@@ -34,11 +35,17 @@ kobby {
     }
 }
 
+kotlin {
+    jvmToolchain(11)
+}
 
 dependencies {
-    // Add this dependency to enable Jackson annotation generation in DTO classes by Kobby
-    compileOnly("com.fasterxml.jackson.core:jackson-annotations:2.13.4")
+    // Add this dependency to enable Kotlinx Serialization
+    compileOnly("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.0")
+
+    // Add this dependency to use datetime scalars with Kotlinx Serialization support
+    compileOnly("org.jetbrains.kotlinx:kotlinx-datetime:0.4.0")
 
     // Add this dependency to enable default Ktor adapters generation
-    compileOnly("io.ktor:ktor-client-cio:2.1.2")
+    compileOnly("io.ktor:ktor-client-cio:2.3.0")
 }

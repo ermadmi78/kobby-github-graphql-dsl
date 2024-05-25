@@ -13,8 +13,8 @@ buildscript {
 }
 
 plugins {
-    kotlin("jvm") version "1.9.23"
-    kotlin("plugin.serialization") version "1.9.23"
+    kotlin("jvm") version "2.0.0"
+    kotlin("plugin.serialization") version "2.0.0"
     id("io.github.ermadmi78.kobby") version "4.0.0"
 }
 
@@ -41,11 +41,11 @@ kotlin {
 
 dependencies {
     // Add this dependency to enable Kotlinx Serialization
-    compileOnly("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0")
+    compileOnly("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.0-RC")
 
     // Add this dependency to use datetime scalars with Kotlinx Serialization support
-    compileOnly("org.jetbrains.kotlinx:kotlinx-datetime:0.4.1")
+    compileOnly("org.jetbrains.kotlinx:kotlinx-datetime:0.6.0")
 
     // Add this dependency to enable default Ktor adapters generation
-    compileOnly("io.ktor:ktor-client-cio:2.3.6")
+    compileOnly("io.ktor:ktor-client-cio:2.3.11")
 }

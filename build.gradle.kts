@@ -15,7 +15,7 @@ buildscript {
 plugins {
     kotlin("jvm") version "2.0.0"
     kotlin("plugin.serialization") version "2.0.0"
-    id("io.github.ermadmi78.kobby") version "4.0.1"
+    id("io.github.ermadmi78.kobby") version "4.0.3"
 }
 
 kobby {
